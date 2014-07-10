@@ -10,26 +10,28 @@
 
 Mac / Linux:
 
-`git clone https://github.com/noyobo/grunt-init-xiami.git ~/.grunt-init/xiami`
+`$ git clone https://github.com/noyobo/grunt-init-xiami.git ~/.grunt-init/xiami`
 
 Window:
 
-`git clone https://github.com/noyobo/grunt-init-xiami.git C:\Users\Administrator\.grunt-init\xiami`
+`$ git clone https://github.com/noyobo/grunt-init-xiami.git C:\Users\Administrator\.grunt-init\xiami`
 
  > Note: 如果 `C:\Users\Administrator\` 目录下没有 `.grunt-init` 文件夹, 请先创建
  
 
 # Usage 
 
-在目录所在文件夹运行
+在项目目录`\`下运行
 
-`grunt-init xiami`
+`$ grunt-init xiami`
 
 ```
-.
+\
+├── package.json
+├── gruntfile.js
 ├── src                 你的代码
 └── build               发布目录
 ```
 
-`grunt build` 自动压缩打包文件到`build`下,可根据需求自行修改
+`$ grunt build` 自动压缩打包文件到`build`下,可根据需求自行修改
  
