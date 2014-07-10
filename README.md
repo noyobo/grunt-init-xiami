@@ -1,6 +1,6 @@
 # grunt-init-xiami
 
-    使用 grunt-init 创建虾米模版
+使用 grunt-init 创建虾米模版,快速创建 grunt 项目.
     
 # Installation
 
@@ -24,3 +24,12 @@ Window:
 在目录所在文件夹运行
 
 `grunt-init xiami`
+
+```
+.
+├── src                 你的代码
+└── build               发布目录
+```
+
+`grunt build` 自动压缩打包文件到`build`下,可根据需求自行修改
+ 
