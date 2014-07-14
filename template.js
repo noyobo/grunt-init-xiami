@@ -38,7 +38,7 @@ exports.template = function(grunt, init, done) {
     ], function(err, props) {
         //props.keywords = [];
         props.devDependencies = {
-            'grunt-sass': '~0.10.0',
+            'grunt-contrib-sass': '~0.4.0',
             'grunt-contrib-clean': '~0.4.0',
             'grunt-contrib-uglify': '~0.2.0',
             'grunt-contrib-cssmin': '~0.4.1',

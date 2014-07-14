@@ -22,7 +22,7 @@ module.exports = function(grunt) {
             combine: {
                 files: [{
                     expand: true,
-                    cwd: 'src',
+                    cwd: 'build',
                     src: ['**/*.css', '!**/*min.css'],
                     dest: 'build',
                     ext: '-min.css'
@@ -81,13 +81,15 @@ module.exports = function(grunt) {
             }
         },
         sass: {
+            options: { // dictionary of render options
+                debugInfo: false
+            },
             dist: {
                 files: [{
                     expand: true,
                     cwd: 'src/',
                     src: ['**/*.scss',
-                        '!build/**/*.scss',
-                        '!demo/**/*.scss'
+                        '!**/_*.scss',
                     ],
                     dest: 'build/',
                     ext: '.css'
@@ -112,7 +114,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-sass');
 
     grunt.registerTask('build', '默认构建任务', function() {
         grunt.task.run(['clean', 'uglify', 'copy', 'less', 'sass', 'cssmin']);
