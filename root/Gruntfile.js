@@ -115,8 +115,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-sass');
 
     grunt.registerTask('build', '默认构建任务', function() {
-        grunt.task.run(['clean', 'uglify', 'copy', 'less', 'cssmin']);
+        grunt.task.run(['clean', 'uglify', 'copy', 'less', 'sass', 'cssmin']);
     });
 
-    return grunt.registerTask('default', ['clean', 'uglify', 'copy', 'less', 'cssmin']);
+    return grunt.registerTask('default', ['clean', 'uglify', 'copy', 'less', 'sass', 'cssmin']);
 };
