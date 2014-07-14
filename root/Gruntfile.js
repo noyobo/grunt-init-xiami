@@ -61,6 +61,48 @@ module.exports = function(grunt) {
                     ]
                 }]
             }
+        },
+        less: {
+            options: {
+                paths: './'
+            },
+            main: {
+                files: [{
+                    expand: true,
+                    cwd: 'src',
+                    src: ['**/*.less',
+                        '!**/_*.less',
+                        '!build/**/*.less',
+                        '!demo/**/*.less'
+                    ],
+                    dest: 'build',
+                    ext: '.css'
+                }]
+            }
+        },
+        sass: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/',
+                    src: ['**/*.scss',
+                        '!build/**/*.scss',
+                        '!demo/**/*.scss'
+                    ],
+                    dest: 'build/',
+                    ext: '.css'
+                }]
+            }
+        },
+        watch: {
+            'all': {
+                files: [
+                    'src/**/*.js',
+                    'src/**/*.less',
+                    '!build/**/*'
+                ],
+                tasks: ['build']
+            }
         }
     });
 
@@ -68,5 +110,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    return grunt.registerTask('default', ['clean', 'uglify', 'cssmin', 'copy']);
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-sass');
+
+    grunt.registerTask('build', '默认构建任务', function() {
+        grunt.task.run(['clean', 'uglify', 'copy', 'less', 'cssmin']);
+    });
+
+    return grunt.registerTask('default', ['clean', 'uglify', 'copy', 'less', 'cssmin']);
 };
